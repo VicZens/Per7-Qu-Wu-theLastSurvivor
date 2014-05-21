@@ -15,6 +15,9 @@ void draw() {
 void keyPressed() {
   if(key == 'w' || key == 'W') {
      p.forward();
+  }
+  if(key == 's' || key == 'S') {
+     p.back();
   } 
 }
 
