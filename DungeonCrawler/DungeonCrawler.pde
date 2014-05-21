@@ -1,15 +1,20 @@
 Player p;
+Enemy e;
 
 void setup() {
    size(500,500);
-   background(255);
    smooth();
    p = new Player(250,250);
+   e = new Enemy(200);
 }
 
 void draw() {
-   background(255);
-   p.draw();
+   background(255,255,255);
+   p.update();
+   p.show();
+   e.update();
+   e.show();
+   e.checkEdges();
 }
 
 void keyPressed() {
