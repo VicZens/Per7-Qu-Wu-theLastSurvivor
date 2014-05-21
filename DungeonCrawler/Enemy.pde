@@ -3,10 +3,9 @@ public class Enemy {
   float maxSpeed;
   float health;
  
-  public Enemy(float x) {
-     enemy = new PVector(random(x), random(x));
+  public Enemy() {
+     enemy = new PVector(100,100);
      direct = new PVector(0,0);
-     rand = new PVector(-0.001,.01);
      maxSpeed = 10;
   }
   
@@ -21,7 +20,6 @@ public class Enemy {
   
   public void show() {
      fill(255);
-     ellipseMode(CENTER);
      ellipse(enemy.x,enemy.y, 20,20);
   }
   
