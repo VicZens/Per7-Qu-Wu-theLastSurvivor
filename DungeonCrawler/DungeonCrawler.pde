@@ -13,11 +13,11 @@ void draw() {
 }
 
 void keyPressed() {
-  if(key == 'w' || key == 'W') {
-     p.forward();
+  if(key == 'w') {
+     p.charge();
   }
-  if(key == 's' || key == 'S') {
-     p.back();
+  if(key == 's') {
+     p.retreat();
   } 
 }
 
