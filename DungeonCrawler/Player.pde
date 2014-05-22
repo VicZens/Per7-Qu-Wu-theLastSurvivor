@@ -1,6 +1,6 @@
 public class Player {
   PVector mouse, hero, dir;
-  float health, mana;
+  float health, xp;
   float strength, agility;
    
   public Player(float x, float y){
@@ -11,7 +11,7 @@ public class Player {
      mouse = new PVector(mouseX,mouseY);
      dir = PVector.sub(mouse,hero);
      dir.normalize();
-     dir.mult(3);
+     dir.mult(5);
   }
   
   public void show() {
@@ -29,6 +29,10 @@ public class Player {
   public void retreat() {
     hero.x = hero.x - dir.x;
     hero.y = hero.y - dir.y;
+  }
+  
+  public PVector getHero() {
+    return hero; 
   }
   
 }

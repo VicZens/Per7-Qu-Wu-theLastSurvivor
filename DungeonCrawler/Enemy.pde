@@ -1,25 +1,25 @@
 public class Enemy {
   PVector rand, enemy, direct;
-  float maxSpeed;
-  float health;
+  float health, detection;
+  float strength, agility;
  
   public Enemy() {
      enemy = new PVector(100,100);
      direct = new PVector(0,0);
-     maxSpeed = 10;
+     agility = 1;
   }
   
   public void update() {
-     rand = new PVector(random(-1,1),random(-1,1));
+     rand = new PVector(random(-.5,.5),random(-.5,.5));
      rand.normalize();
-    
+     
      direct.add(rand);
      direct.limit(maxSpeed);
      enemy.add(direct);
   }
   
   public void show() {
-     fill(255);
+     fill(100,50,150);
      ellipse(enemy.x,enemy.y, 20,20);
   }
   
@@ -36,4 +36,7 @@ public class Enemy {
     }
   }
   
+  public PVector getEnemy() {
+    return enemy;
+  }  
 }
