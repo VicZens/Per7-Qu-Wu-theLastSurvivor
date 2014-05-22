@@ -15,11 +15,13 @@ public class Player {
   }
   
   public void show() {
+     pushMatrix();
      fill(0);
      translate(hero.x,hero.y);
      rotate(atan(dir.y/dir.x));
      rectMode(CENTER);
      rect(0,0, 30,20);
+     popMatrix();
   }
    
   public void charge() {

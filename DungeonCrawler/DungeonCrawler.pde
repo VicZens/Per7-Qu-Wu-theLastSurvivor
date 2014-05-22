@@ -9,13 +9,12 @@ void setup() {
 }
 
 void draw() {
-   background(255,255,255);
-   e.update();
-   e.show();
-   e.checkEdges();
-   
+   background(255,255,255);   
    p.update();
+   e.update();
+   e.checkEdges();
    p.show();
+   e.show();
 }
 
 void keyPressed() {

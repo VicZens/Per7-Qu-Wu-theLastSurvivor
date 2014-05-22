@@ -14,7 +14,7 @@ public class Enemy {
      rand.normalize();
      
      direct.add(rand);
-     direct.limit(maxSpeed);
+     direct.limit(agility);
      enemy.add(direct);
   }
   
