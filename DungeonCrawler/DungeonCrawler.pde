@@ -4,7 +4,7 @@ Enemy e;
 void setup() {
    size(500,500);
    smooth();
-   p = new Player(250,250);
+   p = new Player();
    e = new Enemy();
 }
 
