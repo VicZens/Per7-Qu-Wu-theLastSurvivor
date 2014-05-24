@@ -8,6 +8,7 @@ public class Player extends Character{
   public Player(){
     hero = new PVector(250,250);
     agility = 3;
+    health = 1;
   }
    
   public void update() {
@@ -40,6 +41,10 @@ public class Player extends Character{
   public void retreat() {
     hero.x = hero.x - dir.x;
     hero.y = hero.y - dir.y;
+  }
+  
+  public float getHealth() {
+    return health; 
   }
   
 }

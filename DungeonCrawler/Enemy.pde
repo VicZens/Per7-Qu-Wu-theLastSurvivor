@@ -9,6 +9,7 @@ public class Enemy extends Character{
     enemy = new PVector(100,100);
     dir = new PVector(0,0);
     agility = 1;
+    health = 1;
   }
   
   public void update() {
@@ -20,6 +21,8 @@ public class Enemy extends Character{
     dir.add(rand);
     dir.limit(agility);
     enemy.add(dir);
+    
+    checkEdges();
   }
   
   public void show() {
@@ -41,5 +44,10 @@ public class Enemy extends Character{
       enemy.y = height;
     }
   }
+ 
+  public float getHealth() {
+    return health; 
+  }
+  
   
 }
