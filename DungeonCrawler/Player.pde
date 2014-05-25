@@ -46,6 +46,12 @@ public class Player extends Character{
   public float getHealth() {
     return health; 
   }
+  public float getX() {
+    return hero.x; 
+  }
+  public float getY() {
+    return hero.y; 
+  }
   
 }
 

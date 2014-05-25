@@ -48,6 +48,11 @@ public class Enemy extends Character{
   public float getHealth() {
     return health; 
   }
-  
+  public float getX() {
+    return enemy.x; 
+  }
+  public float getY() {
+    return enemy.y; 
+  }
   
 }

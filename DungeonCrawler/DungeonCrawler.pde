@@ -19,6 +19,7 @@ void draw() {
   background(255,255,255); 
   p.update();
   //e.update();
+  isOn();
   bgShow();
   if (p.getHealth()>0)
     p.show();
@@ -40,6 +41,18 @@ void bgShow() {
   for(int h = 0; h < b.length; h++) {
     for(int w = 0; w < b.length; w++) {
        b[h][w].show();
+    }     
+  } 
+}
+
+void isOn() {
+  for(int h = 0; h < b.length; h++) {
+    for(int w = 0; w < b.length; w++) {
+       if((p.getX()>((h)*25)) && (p.getX()<((h+1)*25)) && (p.getY()>((w)*25)) && (p.getY()<((w+1)*25))) {
+         b[h][w].detected = true; 
+       } else {
+         b[h][w].detected = false; 
+       }
     }     
   } 
 }
