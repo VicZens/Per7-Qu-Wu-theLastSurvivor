@@ -5,8 +5,9 @@ public class Player extends Character{
   float xp;
                              //xp determines the level of the hero.
    
-  public Player(){
+  public Player(Background[][] b){
     hero = new PVector(250,250);
+    this.b = b;
     agility = 3;
     health = 1;
   }
@@ -17,6 +18,7 @@ public class Player extends Character{
     mouse = new PVector(mouseX,mouseY);
     dir = PVector.sub(mouse,hero);
     dir.normalize();
+    setNextPlace();
     dir.mult(agility);
   }
   
@@ -25,12 +27,18 @@ public class Player extends Character{
     //It colors the hero black, translates it to the hero's x and y, rotates it so that it
     //faces the mouse, and then creates the hero's image.
     pushMatrix();
+    noStroke();
     fill(0);
     translate(hero.x,hero.y);
     rotate(atan(dir.y/dir.x));
     rectMode(CENTER);
     rect(0,0, 30,20);
     popMatrix();
+  }
+  
+  public void setNextPlace() {
+    nextPlace = PVector.add(hero, dir);
+    nextPlace.add(dir.x * 25, dir.y * 25,0);
   }
   
   //Moving the hero forwards and backwards.
@@ -41,6 +49,9 @@ public class Player extends Character{
   public void retreat() {
     hero.x = hero.x - dir.x;
     hero.y = hero.y - dir.y;
+  }
+  
+  public void setDead() {
   }
   
   public float getHealth() {

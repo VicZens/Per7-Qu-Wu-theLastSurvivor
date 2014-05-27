@@ -5,9 +5,11 @@ public class Enemy extends Character{
   float detection;
                              //detection is the range in which the enemy can find the hero.
 
-  public Enemy() {
-    enemy = new PVector(100,100);
+  public Enemy(Background[][] b) {
+    enemy = new PVector(130,130);
     dir = new PVector(0,0);
+    rand = new PVector(0,0);
+    this.b = b;
     agility = 1;
     health = 1;
   }
@@ -43,6 +45,12 @@ public class Enemy extends Character{
     } else if (enemy.y < 0) {
       enemy.y = height;
     }
+  }
+  
+  public void setDead() {
+    rand.set(0,0);
+    enemy.set(-1,-1);
+    dir.set(0,0);
   }
  
   public float getHealth() {

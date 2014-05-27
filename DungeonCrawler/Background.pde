@@ -2,7 +2,8 @@ public class Background {
   PImage bg;
   float x, y;
   float sizeX, sizeY;
-  boolean detected = true;
+  boolean detectedHero, detectedEnemy;
+  boolean heroNext, enemyNext;
   
   public Background(float x, float y, float sizeX, float sizeY) {
     this.x = x;
@@ -23,8 +24,12 @@ public class Background {
     image(bg,x,y);
     */
     stroke(255);
-    if (detected) {
+    if (detectedHero) {
      fill(255,0,0);
+    } else if (detectedEnemy) {
+     fill(0,255,0);
+    } else if (heroNext) {
+     fill(0,0,255);
     } else { 
      fill(138,238,255);
     }
