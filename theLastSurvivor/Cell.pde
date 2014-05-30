@@ -10,9 +10,12 @@ public class Cell {
   }
   
   public void show() {
+   pushMatrix();
    stroke(255);
    fill(0);
+   rectMode(CORNER);
    rect(x,y,h,w);
+   popMatrix();
   }
   
   //End

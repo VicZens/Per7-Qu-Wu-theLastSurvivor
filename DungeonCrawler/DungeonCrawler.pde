@@ -15,14 +15,13 @@ void setup() {
   } 
 }
 
-void draw() {voi
+void draw() {
   background(255,255,255); 
   p.update();
   e.update();
   isOn();
   bgShow();
   if (p.getHealth()<=0) {
-    p.setDead();
   } else {
     p.show();
   }

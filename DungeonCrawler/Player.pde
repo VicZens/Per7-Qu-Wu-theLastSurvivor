@@ -4,9 +4,9 @@ public class Player extends Character{
                              //dir is the current direction that the hero is going towards.
   float xp;
                              //xp determines the level of the hero.
-   
+
   public Player(Background[][] b){
-    hero = new PVector(250,250);
+    hero = new PVector(250,250 );
     this.b = b;
     agility = 3;
     health = 1;
@@ -50,10 +50,7 @@ public class Player extends Character{
     hero.x = hero.x - dir.x;
     hero.y = hero.y - dir.y;
   }
-  
-  public void setDead() {
-  }
-  
+
   public float getHealth() {
     return health; 
   }
