@@ -15,7 +15,7 @@ void setup() {
   } 
 }
 
-void draw() {
+void draw() {voi
   background(255,255,255); 
   p.update();
   e.update();
