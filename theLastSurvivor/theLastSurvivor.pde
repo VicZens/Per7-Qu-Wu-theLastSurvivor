@@ -12,6 +12,7 @@ void draw() {
   background(255);
   bg.show();
   h.update();
+  h.checkHero(bg);
   h.show();
 }
 

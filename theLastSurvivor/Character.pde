@@ -1,7 +1,7 @@
 public class Character {
-  Background bg;
-  PVector currPlace, dir;
+  PVector currPlace, nextPlace, dir;
+  Cell currNextCell, nextCell, currCell, prevCell;
   float speed;
   
- //End 
+ //End
 }

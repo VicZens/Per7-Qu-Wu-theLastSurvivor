@@ -21,5 +21,13 @@ public class Background {
    }
  }
  
+ public Cell getCell(int x, int y) {
+   if (-1 < x & x < sizeX & -1 < y & y < sizeY) {
+     return c[x][y];
+   } else {
+     return new Cell(1,1,1,1); 
+   }
+ }
+ 
  //End
 }
