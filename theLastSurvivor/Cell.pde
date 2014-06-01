@@ -4,6 +4,7 @@ public class Cell {
   color c;
   
   boolean heroOn, heroNext;
+  boolean enemyOn, enemyNext;
   
   public Cell(int x, int y, float h, float w) {
    this.x = x;
@@ -37,6 +38,26 @@ public class Cell {
    
     if (heroNext) {
       c = color(0,255,0);
+    } else {
+      c = color(0);
+    }
+  }
+  
+  public void setEnemyOn(boolean enemyOn) {
+    this.enemyOn = enemyOn;
+    
+    if (enemyOn) {
+      c = color(255,0,255);
+    } else {
+      c = color(0);
+    }
+  }
+  
+  public void setEnemyNext(boolean enemyNext) {
+    this.enemyNext = enemyNext;
+   
+    if (enemyNext) {
+      c = color(255,255,0);
     } else {
       c = color(0);
     }

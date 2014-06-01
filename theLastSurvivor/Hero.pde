@@ -1,12 +1,12 @@
 public class Hero extends Character{
   PVector mouse;
   
-  boolean firstTime;
-  
-  public Hero(Background bg) {
+  public Hero() {
    currPlace = new PVector(277,277);
-   
-   update();
+   mouse = new PVector(mouseX,mouseY);
+   dir = PVector.sub(mouse,currPlace);
+   dir.normalize();
+   dir.mult(speed);
    setNextPlace();
 
    prevCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
@@ -18,11 +18,11 @@ public class Hero extends Character{
    speed = 5;
   }
   
-  public void update() {
+  public void update(Background bg) {
     mouse = new PVector(mouseX,mouseY);
-    
     dir = PVector.sub(mouse,currPlace);
     dir.normalize();
+    checkHero(bg);
     dir.mult(speed);
   }
   
@@ -48,8 +48,8 @@ public class Hero extends Character{
     currPlace.y = currPlace.y - dir.y;
   }
 
-  //Changing the Background
-  public void checkHero(Background bg) {
+  //Background Update
+  private void checkHero(Background bg) {
     currCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
     currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     setNextPlace();
@@ -78,7 +78,7 @@ public class Hero extends Character{
   
   private void setNextPlace() {
     nextPlace = PVector.add(currPlace, dir);
-    nextPlace.add(dir.x * 6, dir.y * 6, 0);
+    nextPlace.add(dir.x * 31, dir.y * 31, 0);
   }
 
 
