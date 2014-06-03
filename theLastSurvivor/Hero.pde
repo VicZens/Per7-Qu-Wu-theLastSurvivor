@@ -80,6 +80,14 @@ public class Hero extends Character{
     nextPlace = PVector.add(currPlace, dir);
     nextPlace.add(dir.x * 31, dir.y * 31, 0);
   }
+  
+  //for Others' use
+  public int getX() {
+    return (int)currPlace.x;
+  }
+  public int getY() {
+    return (int)currPlace.y; 
+  }
 
 
   //End
