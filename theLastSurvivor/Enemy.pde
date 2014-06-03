@@ -1,5 +1,6 @@
 public class Enemy extends Character {
   int currSteps, steps;
+  float detRange;
 
   public Enemy() {
     currPlace = new PVector(215,215);
@@ -14,17 +15,27 @@ public class Enemy extends Character {
     
     speed = 3;
     steps = 300;
+    detRange = 5;
   }
   
-  public void update(Background bg) {
+  public void update(Background bg, Hero h) {
      if (currSteps > steps) {
        dir = new PVector(dir.x*-1,0);
        currSteps = 0;
      }
      
+     checkForHero(h);
      currPlace.add(dir);
      currSteps++;
      checkEnemy(bg);
+  }
+  
+  public void checkForHero(Hero h) {
+    println(sqrt( sq(h.getX()-currPlace.x) + sq(h.getY()-currPlace.y))/30);
+    if (detRange > (sqrt(sq(h.getX()-currPlace.x) + sq(h.getY()-currPlace.y))/30)) {
+      dir = PVector.sub(h.getCurrPlace(), dir);
+      dir.normalize();
+    }
   }
   
   public void show() {

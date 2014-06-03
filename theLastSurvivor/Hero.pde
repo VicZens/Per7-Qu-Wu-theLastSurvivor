@@ -88,6 +88,9 @@ public class Hero extends Character{
   public int getY() {
     return (int)currPlace.y; 
   }
+  public PVector getCurrPlace() {
+    return currPlace;
+  }
 
 
   //End

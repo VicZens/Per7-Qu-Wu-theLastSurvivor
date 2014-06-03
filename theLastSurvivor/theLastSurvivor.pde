@@ -12,12 +12,21 @@ void setup() {
 
 void draw() {
   background(255);
-  bg.show();
+  updateTheClasses();
+  showEverything();
+}
+
+void updateTheClasses() {
   h.update(bg);
-  e.update(bg);
+  e.update(bg, h);
+}
+
+void showEverything() {
+  bg.show();
   h.show();
   e.show();
 }
+
 
 void keyPressed() {
   if(key == 'w') {
