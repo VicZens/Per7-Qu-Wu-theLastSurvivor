@@ -15,7 +15,7 @@ public class Enemy extends Character {
     
     speed = 3;
     steps = 300;
-    detRange = 5;
+    detRange = 100;
   }
   
   public void update(Background bg, Hero h) {
@@ -31,11 +31,17 @@ public class Enemy extends Character {
   }
   
   public void checkForHero(Hero h) {
-    println(sqrt( sq(h.getX()-currPlace.x) + sq(h.getY()-currPlace.y))/30);
     if (detRange > (sqrt(sq(h.getX()-currPlace.x) + sq(h.getY()-currPlace.y))/30)) {
-      dir = PVector.sub(h.getCurrPlace(), dir);
+      dir = PVector.add(h.getCurrPlace(), dir);
       dir.normalize();
+      if (currPlace.x > h.getX()) {
+        dir.x = dir.x * -1; 
+      }
+      if (currPlace.y > h.getY()) {
+        dir.y = dir.y * -1; 
+      }
     }
+    println(dir.x +" "+ h.getX());
   }
   
   public void show() {
