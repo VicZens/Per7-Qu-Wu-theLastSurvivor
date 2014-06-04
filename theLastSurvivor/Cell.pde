@@ -70,5 +70,12 @@ public class Cell {
     return y; 
   }
   
+  public boolean getHeroOn() {
+    return heroOn; 
+  }
+  public boolean getEnemyOn() {
+    return enemyOn; 
+  }
+  
   //End
 }

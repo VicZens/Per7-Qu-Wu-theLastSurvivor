@@ -1,13 +1,16 @@
 Background bg;
 Hero h;
-Enemy e;
+Enemy[] e;
 
 void setup() {
   size(600,600);
   smooth();
   bg = new Background(20,20);
-  h = new Hero();
-  e = new Enemy();
+  h = new Hero(277,277);
+  e = new Enemy[25];
+  for (int i = 0; i < e.length; i++) {
+    e[i] = new Enemy((int)random(600), (int)random(600));
+  }
 }
 
 void draw() {
@@ -18,13 +21,17 @@ void draw() {
 
 void updateTheClasses() {
   h.update(bg);
-  e.update(bg, h);
+  for (int i = 0; i < e.length; i++) {
+    e[i].update(bg, h);
+  }
 }
 
 void showEverything() {
   bg.show();
   h.show();
-  e.show();
+  for (int i = 0; i < e.length; i++) {
+    e[i].show();
+  }
 }
 
 

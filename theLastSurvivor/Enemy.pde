@@ -2,9 +2,9 @@ public class Enemy extends Character {
   int currSteps, steps;
   float detRange;
 
-  public Enemy() {
-    currPlace = new PVector(215,215);
-    dir = new PVector(1,0);
+  public Enemy(int x, int y) {
+    currPlace = new PVector(x,y);
+    dir = new PVector((int)random(2),(int)random(2));
     setNextPlace();
     
     prevCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
@@ -14,23 +14,28 @@ public class Enemy extends Character {
     currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     
     speed = 3;
-    steps = 300;
-    detRange = 100;
+    steps = 100;
+    detRange = 5;
   }
   
   public void update(Background bg, Hero h) {
      if (currSteps > steps) {
-       dir = new PVector(dir.x*-1,0);
+       dir = new PVector(dir.x*-1,dir.y*-1);
        currSteps = 0;
      }
      
      checkForHero(h);
-     currPlace.add(dir);
-     currSteps++;
+     if (!nextCell.getHeroOn()) {
+       currPlace.add(dir);
+       currSteps++;
+     }
+     println(currSteps +" "+ steps);
      checkEnemy(bg);
   }
   
   public void checkForHero(Hero h) {
+    PVector tempDir = dir;
+    
     if (detRange > (sqrt(sq(h.getX()-currPlace.x) + sq(h.getY()-currPlace.y))/30)) {
       dir = PVector.add(h.getCurrPlace(), dir);
       dir.normalize();
@@ -40,8 +45,10 @@ public class Enemy extends Character {
       if (currPlace.y > h.getY()) {
         dir.y = dir.y * -1; 
       }
-    }
-    println(dir.x +" "+ h.getX());
+    } else {
+      dir = tempDir;
+    } 
+    
   }
   
   public void show() {

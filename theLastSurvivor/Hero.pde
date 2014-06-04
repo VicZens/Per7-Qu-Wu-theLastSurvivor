@@ -1,8 +1,8 @@
 public class Hero extends Character{
   PVector mouse;
   
-  public Hero() {
-   currPlace = new PVector(277,277);
+  public Hero(int x, int y) {
+   currPlace = new PVector(x,y);
    mouse = new PVector(mouseX,mouseY);
    dir = PVector.sub(mouse,currPlace);
    dir.normalize();
@@ -37,11 +37,16 @@ public class Hero extends Character{
     popMatrix();
   }
   
+  public void attack() {
+    
+  }
   
   //Moving
   public void charge() {
-    currPlace.x = currPlace.x + dir.x;
-    currPlace.y = currPlace.y + dir.y;
+    if (!nextCell.getEnemyOn()) {
+      currPlace.x = currPlace.x + dir.x;
+      currPlace.y = currPlace.y + dir.y;
+    }
   }
   public void retreat() {
     currPlace.x = currPlace.x - dir.x;
