@@ -37,9 +37,7 @@ public class Hero extends Character{
     popMatrix();
   }
   
-  public void attack() {
-    
-  }
+  //public void attack() {}
   
   //Moving
   public void charge() {

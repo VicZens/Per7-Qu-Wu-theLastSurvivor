@@ -25,7 +25,7 @@ public class Enemy extends Character {
      }
      
      checkForHero(h);
-     if (!nextCell.getHeroOn()) {
+     if (!nextCell.getHeroOn() & !nextCell.getEnemyOn()) {
        currPlace.add(dir);
        currSteps++;
      }
@@ -83,6 +83,8 @@ public class Enemy extends Character {
        nextCell.setEnemyNext(false);
        nextCell = currNextCell;
     }
+    
+    //if (nextCell.getX() == currCell.getX() & nextCell.getY() == currCell.getY()) {}
   }
   
   private void setNextPlace() {
