@@ -15,22 +15,29 @@ public class Enemy extends Character {
     
     speed = 3;
     steps = 100;
-    detRange = 5;
+    health = 1;
+    detRange = 3;
   }
   
   public void update(Background bg, Hero h) {
+    if (health > 0) {
      if (currSteps > steps) {
        dir = new PVector(dir.x*-1,dir.y*-1);
        currSteps = 0;
      }
-     
-     checkForHero(h);
+    
      if (!nextCell.getHeroOn() & !nextCell.getEnemyOn()) {
        currPlace.add(dir);
        currSteps++;
      }
+     checkForHero(h);
      checkEnemy(bg);
+    }
   }
+  
+  public void getHurt(int healthLost) {
+    health = health - healthLost;
+  } 
   
   public void checkForHero(Hero h) {
     PVector tempDir = dir;
@@ -51,9 +58,11 @@ public class Enemy extends Character {
   }
   
   public void show() {
-    ellipseMode(CORNER);
-    fill(100,50,150);
-    ellipse(currPlace.x, currPlace.y, 20,20);
+    if (health > 0) {
+      ellipseMode(CORNER);
+      fill(100,50,150);
+      ellipse(currPlace.x, currPlace.y, 20,20);
+    }
   }
   
   //Background Update
@@ -62,8 +71,11 @@ public class Enemy extends Character {
     currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     setNextPlace();
     
+    prevCell.removeEnemy();
+    currCell.setEnemy(this);
+    
     checkEnemyOn(bg);
-    checkEnemyNext(bg);
+    checkEnemyNext(bg);  
   }
   
   private void checkEnemyOn(Background bg) { 
@@ -86,12 +98,16 @@ public class Enemy extends Character {
   
   private void setNextPlace() {
     nextPlace = PVector.add(currPlace, dir);
+    /*
     float theTan = atan2(dir.y, dir.x);
-    if ((theTan > PI/8 & 3*PI/8 > theTan) || (theTan > 4*PI/8 & 7*PI/8 > theTan) || (theTan < -PI/8 & -3*PI/8 < theTan) || (theTan < -4*PI/8 & -7*PI/8 < theTan)) {
+    if ((theTan > PI/6 & 2*PI/6 > theTan) || (theTan > 3*PI/6 & 5*PI/6 > theTan) || (theTan < -PI/6 & -2*PI/6 < theTan) || (theTan < -3*PI/6 & -5*PI/6 < theTan)) {
       nextPlace.add(dir.x * 35, dir.y * 35, 0);
     } else {
-      nextPlace.add(dir.x * 31, dir.y * 31, 0);
+      
     }
+    */
+    nextPlace.add(dir.x * 35, dir.y * 35, 0);
+    
   }
   //End
 }

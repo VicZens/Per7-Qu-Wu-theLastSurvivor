@@ -2,9 +2,12 @@ public class Cell {
   int x, y;
   float h, w;
   color c;
+  Enemy enemy;
+  Hero hero;
   
   boolean heroOn, heroNext;
   boolean enemyOn, enemyNext;
+  boolean hasHero, hasEnemy;
   
   public Cell(int x, int y, float h, float w) {
    this.x = x;
@@ -71,11 +74,39 @@ public class Cell {
   }
   
   public boolean getHeroOn() {
-    return heroOn; 
+    return heroOn;
   }
   public boolean getEnemyOn() {
     return enemyOn; 
   }
+  
+  public void setHero(Hero h) {
+    this.hero = h;
+    hasHero = true;
+  }
+  public void setEnemy(Enemy e) {
+    this.enemy = e;
+    hasEnemy = true;
+  }
+  public Hero getHero() {
+    return hero; 
+  }
+  public Enemy getEnemy() {
+    return enemy; 
+  }
+  public void removeHero() {
+    hasHero = false; 
+  }
+  public void removeEnemy() {
+    hasEnemy = false; 
+  }
+  public boolean hasHero() {
+    return hasHero; 
+  }
+  public boolean hasEnemy() {
+    return hasEnemy; 
+  }
+  
   
   //End
 }

@@ -1,7 +1,7 @@
 public class Character {
   PVector currPlace, nextPlace, dir;
   Cell currNextCell, nextCell, currCell, prevCell;
-  float health, strength, speed;
+  int health, strength, speed;
   
  //End
 }

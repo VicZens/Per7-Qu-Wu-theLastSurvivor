@@ -43,3 +43,10 @@ void keyPressed() {
      h.retreat();
   }
 }
+
+void mousePressed() {
+  if(mouseButton == LEFT) {
+    h.swing();
+  } 
+}
+
