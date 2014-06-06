@@ -7,7 +7,7 @@ void setup() {
   smooth();
   bg = new Background(20,20);
   h = new Hero(277,277);
-  e = new Enemy[2];
+  e = new Enemy[1];
   for (int i = 0; i < e.length; i++) {
     e[i] = new Enemy((int)random(600), (int)random(600));
   }

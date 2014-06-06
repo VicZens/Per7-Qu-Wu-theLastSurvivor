@@ -29,7 +29,6 @@ public class Enemy extends Character {
        currPlace.add(dir);
        currSteps++;
      }
-     println(currSteps +" "+ steps);
      checkEnemy(bg);
   }
   
@@ -83,13 +82,16 @@ public class Enemy extends Character {
        nextCell.setEnemyNext(false);
        nextCell = currNextCell;
     }
-    
-    //if (nextCell.getX() == currCell.getX() & nextCell.getY() == currCell.getY()) {}
   }
   
   private void setNextPlace() {
     nextPlace = PVector.add(currPlace, dir);
-    nextPlace.add(dir.x * 31, dir.y * 31, 0);
+    float theTan = atan2(dir.y, dir.x);
+    if ((theTan > PI/8 & 3*PI/8 > theTan) || (theTan > 4*PI/8 & 7*PI/8 > theTan) || (theTan < -PI/8 & -3*PI/8 < theTan) || (theTan < -4*PI/8 & -7*PI/8 < theTan)) {
+      nextPlace.add(dir.x * 35, dir.y * 35, 0);
+    } else {
+      nextPlace.add(dir.x * 31, dir.y * 31, 0);
+    }
   }
   //End
 }
