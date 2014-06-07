@@ -32,6 +32,8 @@ public class Enemy extends Character {
      }
      checkForHero(h);
      checkEnemy(bg);
+    } else {
+      currCell.setEnemyOn(false);
     }
   }
   
@@ -71,7 +73,7 @@ public class Enemy extends Character {
     currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     setNextPlace();
     
-    prevCell.removeEnemy();
+    prevCell.setEnemyOn(false);
     currCell.setEnemy(this);
     
     checkEnemyOn(bg);

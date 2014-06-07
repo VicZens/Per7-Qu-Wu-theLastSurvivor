@@ -40,7 +40,7 @@ public class Hero extends Character{
   }
   
   public void swing() {
-    if (nextCell.hasEnemy()) {
+    if (nextCell.getEnemyOn()) {
       nextCell.getEnemy().getHurt(strength); 
     }
   }

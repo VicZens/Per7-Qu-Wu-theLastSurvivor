@@ -82,29 +82,15 @@ public class Cell {
   
   public void setHero(Hero h) {
     this.hero = h;
-    hasHero = true;
   }
   public void setEnemy(Enemy e) {
     this.enemy = e;
-    hasEnemy = true;
   }
   public Hero getHero() {
     return hero; 
   }
   public Enemy getEnemy() {
     return enemy; 
-  }
-  public void removeHero() {
-    hasHero = false; 
-  }
-  public void removeEnemy() {
-    hasEnemy = false; 
-  }
-  public boolean hasHero() {
-    return hasHero; 
-  }
-  public boolean hasEnemy() {
-    return hasEnemy; 
   }
   
   
