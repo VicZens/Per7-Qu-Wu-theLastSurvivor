@@ -12,6 +12,7 @@ public class Background {
    left = true;
    right = true;
    c = new Cell[sizeX][sizeY];
+   level = 1;
    
    for(int x = 0; x < sizeX; x++) {
     for(int y = 0; y < sizeY; y++) {

@@ -28,7 +28,25 @@ void updateTheClasses() {
     bg = new Background(20,20);
     h.getNextCell().setIsDoor(false);
     for (int i = 0; i < e.length; i++) {
-      e[i] = new Enemy((int)random(500)+50, (int)random(500)+50);
+      if (bg.getLevel() == 1) {
+        e[i] = new weakEnemy((int)random(500)+50, (int)random(500)+50);
+      } else if (bg.getLevel() == 2) {
+        if (random(2)<1) {
+          e[i] = new weakEnemy((int)random(500)+50, (int)random(500)+50);
+        } else {
+          e[i] = new medEnemy((int)random(500)+50, (int)random(500)+50);
+        }
+      } else if (bg.getLevel() == 3) {
+        e[i] = new medEnemy((int)random(500)+50, (int)random(500)+50);
+      } else if (bg.getLevel() == 4) {
+        if (random(2)<1) {
+          e[i] = new hardEnemy((int)random(500)+50, (int)random(500)+50);
+        } else {
+          e[i] = new medEnemy((int)random(500)+50, (int)random(500)+50);
+        }
+      } else {
+        e[i] = new hardEnemy((int)random(500)+50, (int)random(500)+50);
+      }
     }
   }
   for (int i = 0; i < e.length; i++) {

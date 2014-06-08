@@ -13,9 +13,10 @@ public class Enemy extends Character {
     nextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     
+    health = 5;
+    
     speed = 5;
     steps = 100;
-    health = 1;
     detRange = 5;
   }
   
