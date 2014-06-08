@@ -1,25 +1,33 @@
 public class Cell {
   int x, y;
   float h, w;
-  color c;
+  color c, origColor;
   Enemy enemy;
   Hero hero;
   
+  boolean rColorHelper;
   boolean heroOn, heroNext;
   boolean enemyOn, enemyNext;
-  boolean hasHero, hasEnemy;
+  boolean noZone;
   
   public Cell(int x, int y, float h, float w) {
    this.x = x;
    this.y = y;
    this.h = h;
    this.w = w;
+
    c = color(0);
+
+   if ( (x/20) == 0 || (x/20) == 28 || (y/20) == 0 || (y/20) == 28) {
+     c = color(255,255,0);
+     noZone = true;
+   }
+   
+   origColor = c;
   }
   
   public void show() {
    pushMatrix();
-   stroke(0,0,255);
    fill(c);
    rectMode(CORNER);
    rect(x,y,h,w);
@@ -28,42 +36,18 @@ public class Cell {
   
   public void setHeroOn(boolean heroOn) {
     this.heroOn = heroOn;
-    
-    if (heroOn) {
-      c = color(255,0,0);
-    } else {
-      c = color(0);
-    }
   }
   
   public void setHeroNext(boolean heroNext) {
     this.heroNext = heroNext;
-   
-    if (heroNext) {
-      c = color(0,255,0);
-    } else {
-      c = color(0);
-    }
   }
   
   public void setEnemyOn(boolean enemyOn) {
     this.enemyOn = enemyOn;
-    
-    if (enemyOn) {
-      c = color(255,0,255);
-    } else {
-      c = color(0);
-    }
   }
   
   public void setEnemyNext(boolean enemyNext) {
     this.enemyNext = enemyNext;
-   
-    if (enemyNext) {
-      c = color(255,255,0);
-    } else {
-      c = color(0);
-    }
   }
   
   public int getX() {
@@ -91,6 +75,10 @@ public class Cell {
   }
   public Enemy getEnemy() {
     return enemy; 
+  }
+  
+  public boolean getNoZone() {
+    return noZone; 
   }
   
   

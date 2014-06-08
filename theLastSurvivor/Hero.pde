@@ -15,17 +15,17 @@ public class Hero extends Character{
    nextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
    currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
 
-   speed = 5;
+   speed = 3.5;
    health = 1;
    strength = 1;
   }
   
   public void update(Background bg) {
-    mouse = new PVector(mouseX,mouseY);
-    dir = PVector.sub(mouse,currPlace);
-    dir.normalize();
-    checkHero(bg);
-    dir.mult(speed);
+      mouse = new PVector(mouseX,mouseY);
+      dir = PVector.sub(mouse,currPlace);
+      dir.normalize();
+      checkHero(bg);
+      dir.mult(speed);
   }
   
   public void show() {
@@ -47,14 +47,10 @@ public class Hero extends Character{
   
   //Moving
   public void charge() {
-    if (!nextCell.getEnemyOn()) {
+    if (!nextCell.getEnemyOn() & !nextCell.getNoZone()) {
       currPlace.x = currPlace.x + dir.x;
       currPlace.y = currPlace.y + dir.y;
     }
-  }
-  public void retreat() {
-    currPlace.x = currPlace.x - dir.x;
-    currPlace.y = currPlace.y - dir.y;
   }
 
   //Background Update
@@ -99,6 +95,9 @@ public class Hero extends Character{
   }
   public PVector getCurrPlace() {
     return currPlace;
+  }
+  public float getHealth() {
+    return health; 
   }
 
 

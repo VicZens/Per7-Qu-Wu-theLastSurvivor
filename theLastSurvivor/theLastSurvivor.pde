@@ -14,9 +14,11 @@ void setup() {
 }
 
 void draw() {
-  background(255);
-  updateTheClasses();
-  showEverything();
+  if (h.getHealth()>0) {
+    background(255);
+    updateTheClasses();
+    showEverything();
+  } //Better do something after this cuz it just crashes
 }
 
 void updateTheClasses() {
@@ -34,13 +36,9 @@ void showEverything() {
   }
 }
 
-
 void keyPressed() {
   if(key == 'w') {
      h.charge();
-  }
-  if(key == 's') {
-     h.retreat();
   }
 }
 

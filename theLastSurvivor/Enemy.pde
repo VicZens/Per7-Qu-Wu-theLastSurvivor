@@ -16,7 +16,7 @@ public class Enemy extends Character {
     speed = 3;
     steps = 100;
     health = 1;
-    detRange = 3;
+    detRange = 4;
   }
   
   public void update(Background bg, Hero h) {
@@ -26,20 +26,23 @@ public class Enemy extends Character {
        currSteps = 0;
      }
     
-     if (!nextCell.getHeroOn() & !nextCell.getEnemyOn()) {
+     if (!nextCell.getHeroOn() & !nextCell.getEnemyOn() & !nextCell.getNoZone()) {
        currPlace.add(dir);
        currSteps++;
      }
      checkForHero(h);
      checkEnemy(bg);
+     //attack();
     } else {
       currCell.setEnemyOn(false);
     }
   }
   
-  public void getHurt(int healthLost) {
-    health = health - healthLost;
-  } 
+  public void attack() {
+    if (nextCell.getHeroOn() & ((int)random(1000)==0)) {
+       nextCell.getHero().getHurt(strength);
+    }
+  }
   
   public void checkForHero(Hero h) {
     PVector tempDir = dir;
