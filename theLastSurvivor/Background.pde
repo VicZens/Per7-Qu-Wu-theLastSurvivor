@@ -1,21 +1,31 @@
 public class Background {
  Cell[][] c;
- Door[] d;
  float sizeX, sizeY;
+ boolean top, bot, left, right;
  
  public Background(int sizeX, int sizeY) {
    this.sizeX = sizeX;
    this.sizeY = sizeY;
+   top = true;
+   bot = true;
+   left = true;
+   right = true;
    c = new Cell[sizeX][sizeY];
-   d = new Door[1];
-   //d = new Door[(int)random(3)+1];
    
    for(int x = 0; x < sizeX; x++) {
     for(int y = 0; y < sizeY; y++) {
+      if (random(10)<2 & left & x == 0) {
+        c[x][y] = new Door(x*(600/sizeX), y*(600/sizeY), 600/sizeX, 600/sizeY, true);
+        left = false;
+      } else if (random(10)<2 & right & x == 19) {
+      c[x][y] = new Door(x*(600/sizeX), y*(600/sizeY), 600/sizeX, 600/sizeY, true);
+        right = false;
+      } else {
         c[x][y] = new Cell(x*(600/sizeX), y*(600/sizeY), 600/sizeX, 600/sizeY, false);
+      }
     } 
    }
-   
+   /*
    for(int i = 0; i < d.length; i++) {
      int temp = (int)random(4)+1;
      if (temp == 1) {
@@ -28,6 +38,7 @@ public class Background {
        d[i] = new Door(570, ((int)random(19)+1)*(600/sizeY), 30,30, true);
      }
    }
+   */
  }
  
  public void show() {
@@ -36,10 +47,6 @@ public class Background {
       c[x][y].show();
     } 
    }
-   for(int x = 0; x < d.length; x++) {
-     d[x].show(); 
-   }
-   //println("Door: " + d[0].getX() +" "+ d[0].getY());
  }
  
  public Cell getCell(int x, int y) {

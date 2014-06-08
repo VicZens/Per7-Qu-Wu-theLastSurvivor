@@ -26,6 +26,7 @@ public class Hero extends Character {
       dir.normalize();
       checkHero(bg);
       dir.mult(speed);
+      println(nextCell.getIsDoor());
   }
   
   public void show() {
@@ -102,7 +103,13 @@ public class Hero extends Character {
   public Cell getNextCell() {
     return nextCell; 
   }
-
+  public PVector getDir() {
+    return dir; 
+  }
+  public void setDirXY(float x, float y) {
+    dir.x = x;
+    dir.y = y;
+  }
 
   //End
 }
