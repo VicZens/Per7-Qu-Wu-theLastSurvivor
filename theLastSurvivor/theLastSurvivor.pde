@@ -7,7 +7,7 @@ void setup() {
   smooth();
   bg = new Background(20,20);
   h = new Hero(277,277);
-  e = new Enemy[1];
+  e = new Enemy[5];
   for (int i = 0; i < e.length; i++) {
     e[i] = new Enemy((int)random(500)+50, (int)random(500)+50);
   }
@@ -27,6 +27,9 @@ void updateTheClasses() {
   if (h.getNextCell().getIsDoor()) {
     bg = new Background(20,20);
     h.setDirXY(-1 * h.getDir().x, -1 * h.getDir().y);
+    for (int i = 0; i < e.length; i++) {
+      e[i] = new Enemy((int)random(500)+50, (int)random(500)+50);
+    }
   }
   for (int i = 0; i < e.length; i++) {
     e[i].update(bg, h);
