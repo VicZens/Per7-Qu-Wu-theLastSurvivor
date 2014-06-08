@@ -1,4 +1,4 @@
-public class Hero extends Character{
+public class Hero extends Character {
   PVector mouse;
   
   public Hero(int x, int y) {
@@ -15,7 +15,7 @@ public class Hero extends Character{
    nextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
    currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
 
-   speed = 3.5;
+   speed = 4;
    health = 1;
    strength = 1;
   }
@@ -98,6 +98,9 @@ public class Hero extends Character{
   }
   public float getHealth() {
     return health; 
+  }
+  public Cell getNextCell() {
+    return nextCell; 
   }
 
 

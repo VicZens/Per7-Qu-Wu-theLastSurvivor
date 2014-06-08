@@ -13,10 +13,10 @@ public class Enemy extends Character {
     nextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     
-    speed = 3;
+    speed = 5;
     steps = 100;
     health = 1;
-    detRange = 4;
+    detRange = 10;
   }
   
   public void update(Background bg, Hero h) {

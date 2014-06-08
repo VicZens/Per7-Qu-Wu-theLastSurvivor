@@ -23,6 +23,15 @@ void draw() {
 
 void updateTheClasses() {
   h.update(bg);
+  /*
+  println(h.getNextCell().getX() +" "+ h.getNextCell().getY());
+  println(h.getNextCell().getIsDoor());
+  */
+  println(h.getNextCell().getNoZone());
+
+  if (h.getNextCell().getIsDoor()) {
+    bg = new Background(20,20);
+  }
   for (int i = 0; i < e.length; i++) {
     e[i].update(bg, h);
   }

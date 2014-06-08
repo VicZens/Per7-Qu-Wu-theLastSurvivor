@@ -9,15 +9,16 @@ public class Cell {
   boolean heroOn, heroNext;
   boolean enemyOn, enemyNext;
   boolean noZone;
+  boolean isDoor;
   
-  public Cell(int x, int y, float h, float w) {
+  public Cell(int x, int y, float h, float w, boolean door) {
    this.x = x;
    this.y = y;
    this.h = h;
    this.w = w;
 
+   /*
    int i = (int)random(4);
-   println(i);
 
    if (i == 0) {
      background = loadImage("grassOne.jpg");
@@ -27,11 +28,16 @@ public class Cell {
      background = loadImage("grassThree.jpg");
    } else {
      background = loadImage("grassFour.jpg");
-   } 
-
-   if ( (x/20) == 0 || (x/20) == 28 || (y/20) == 0 || (y/20) == 28) {
-     background = loadImage("wall.jpeg");
-     noZone = true;
+   }
+   */
+   
+   if (!door) {
+     background = loadImage("grass.jpg");
+  
+     if ( (x/20) == 0 || (x/20) == 28 || (y/20) == 0 || (y/20) == 28) {
+       background = loadImage("wall.jpeg");
+       noZone = true;
+     }
    }
   }
   
@@ -86,6 +92,9 @@ public class Cell {
   
   public boolean getNoZone() {
     return noZone; 
+  }
+  public boolean getIsDoor() {
+    return isDoor; 
   }
   
   
