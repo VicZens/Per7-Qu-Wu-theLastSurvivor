@@ -9,7 +9,7 @@ void setup() {
   h = new Hero(277,277);
   e = new Enemy[1];
   for (int i = 0; i < e.length; i++) {
-    e[i] = new Enemy((int)random(600), (int)random(600));
+    e[i] = new Enemy((int)random(500)+50, (int)random(500)+50);
   }
 }
 

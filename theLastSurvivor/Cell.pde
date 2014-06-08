@@ -1,9 +1,9 @@
 public class Cell {
   int x, y;
   float h, w;
-  color c, origColor;
   Enemy enemy;
   Hero hero;
+  PImage background;
   
   boolean rColorHelper;
   boolean heroOn, heroNext;
@@ -16,21 +16,17 @@ public class Cell {
    this.h = h;
    this.w = w;
 
-   c = color(0);
+   background = loadImage("grass.jpeg");
 
    if ( (x/20) == 0 || (x/20) == 28 || (y/20) == 0 || (y/20) == 28) {
-     c = color(255,255,0);
+     background = loadImage("wall.jpeg");
      noZone = true;
    }
-   
-   origColor = c;
   }
   
   public void show() {
    pushMatrix();
-   fill(c);
-   rectMode(CORNER);
-   rect(x,y,h,w);
+   image(background, x, y, 30, 30);
    popMatrix();
   }
   
