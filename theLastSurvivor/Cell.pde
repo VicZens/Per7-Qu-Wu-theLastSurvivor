@@ -16,7 +16,18 @@ public class Cell {
    this.h = h;
    this.w = w;
 
-   background = loadImage("grass.jpeg");
+   int i = (int)random(4);
+   println(i);
+
+   if (i == 0) {
+     background = loadImage("grassOne.jpg");
+   } else if (i == 1) {
+     background = loadImage("grassTwo.jpg");
+   } else if (i == 2) {
+     background = loadImage("grassThree.jpg");
+   } else {
+     background = loadImage("grassFour.jpg");
+   } 
 
    if ( (x/20) == 0 || (x/20) == 28 || (y/20) == 0 || (y/20) == 28) {
      background = loadImage("wall.jpeg");
