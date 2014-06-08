@@ -16,7 +16,7 @@ public class Enemy extends Character {
     speed = 5;
     steps = 100;
     health = 1;
-    detRange = 10;
+    detRange = 5;
   }
   
   public void update(Background bg, Hero h) {
@@ -24,6 +24,10 @@ public class Enemy extends Character {
      if (currSteps > steps) {
        dir = new PVector(dir.x*-1,dir.y*-1);
        currSteps = 0;
+     }
+     
+     if (nextCell.getNoZone()||nextCell.getEnemyOn()) {
+       dir = new PVector(-dir.y, -dir.x); 
      }
     
      if (!nextCell.getHeroOn() & !nextCell.getEnemyOn() & !nextCell.getNoZone()) {
@@ -103,14 +107,6 @@ public class Enemy extends Character {
   
   private void setNextPlace() {
     nextPlace = PVector.add(currPlace, dir);
-    /*
-    float theTan = atan2(dir.y, dir.x);
-    if ((theTan > PI/6 & 2*PI/6 > theTan) || (theTan > 3*PI/6 & 5*PI/6 > theTan) || (theTan < -PI/6 & -2*PI/6 < theTan) || (theTan < -3*PI/6 & -5*PI/6 < theTan)) {
-      nextPlace.add(dir.x * 35, dir.y * 35, 0);
-    } else {
-      
-    }
-    */
     nextPlace.add(dir.x * 35, dir.y * 35, 0);
     
   }

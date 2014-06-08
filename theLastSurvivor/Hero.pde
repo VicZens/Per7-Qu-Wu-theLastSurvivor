@@ -26,7 +26,6 @@ public class Hero extends Character {
       dir.normalize();
       checkHero(bg);
       dir.mult(speed);
-      println(nextCell.getIsDoor());
   }
   
   public void show() {

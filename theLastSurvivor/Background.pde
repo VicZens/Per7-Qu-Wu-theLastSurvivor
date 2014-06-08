@@ -2,6 +2,7 @@ public class Background {
  Cell[][] c;
  float sizeX, sizeY;
  boolean top, bot, left, right;
+ int level;
  
  public Background(int sizeX, int sizeY) {
    this.sizeX = sizeX;
@@ -15,30 +16,16 @@ public class Background {
    for(int x = 0; x < sizeX; x++) {
     for(int y = 0; y < sizeY; y++) {
       if (random(10)<2 & left & x == 0) {
-        c[x][y] = new Door(x*(600/sizeX), y*(600/sizeY), 600/sizeX, 600/sizeY, true);
+        c[x][y] = new Door(x*(600/sizeX), y*(600/sizeY), 600/sizeX, 600/sizeY, true, true);
         left = false;
       } else if (random(10)<2 & right & x == 19) {
-      c[x][y] = new Door(x*(600/sizeX), y*(600/sizeY), 600/sizeX, 600/sizeY, true);
+        c[x][y] = new Door(x*(600/sizeX), y*(600/sizeY), 600/sizeX, 600/sizeY, true, false);
         right = false;
       } else {
         c[x][y] = new Cell(x*(600/sizeX), y*(600/sizeY), 600/sizeX, 600/sizeY, false);
       }
     } 
    }
-   /*
-   for(int i = 0; i < d.length; i++) {
-     int temp = (int)random(4)+1;
-     if (temp == 1) {
-       d[i] = new Door(((int)random(19)+1)*(600/sizeX), 0, 30,30, true);
-     } else if (temp == 2) {
-       d[i] = new Door(0, ((int)random(19)+1)*(600/sizeY), 30,30, true);
-     } else if (temp == 3) {
-       d[i] = new Door(((int)random(19)+1)*(600/sizeX), 570, 30,30, true);
-     } else {
-       d[i] = new Door(570, ((int)random(19)+1)*(600/sizeY), 30,30, true);
-     }
-   }
-   */
  }
  
  public void show() {
@@ -55,6 +42,10 @@ public class Background {
    } else {
      return new Cell(1,1,1,1, false); 
    }
+ }
+ 
+ public int getLevel() {
+   return level; 
  }
  
  //End

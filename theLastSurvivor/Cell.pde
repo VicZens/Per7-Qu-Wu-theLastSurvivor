@@ -16,29 +16,14 @@ public class Cell {
    this.y = y;
    this.h = h;
    this.w = w;
-
-   /*
-   int i = (int)random(4);
-
-   if (i == 0) {
-     background = loadImage("grassOne.jpg");
-   } else if (i == 1) {
-     background = loadImage("grassTwo.jpg");
-   } else if (i == 2) {
-     background = loadImage("grassThree.jpg");
-   } else {
-     background = loadImage("grassFour.jpg");
-   }
-   */
    
-   if (!door) {
-     background = loadImage("grass.jpg");
-  
-     if ( (x/20) == 0 || (x/20) == 28 || (y/20) == 0 || (y/20) == 28) {
-       background = loadImage("wall.jpeg");
-       noZone = true;
-     }
+   background = loadImage("grass.jpg");
+
+   if ( (x/20) == 0 || (x/20) == 28 || (y/20) == 0 || (y/20) == 28) {
+     background = loadImage("wall.jpg");
+     noZone = true;
    }
+
   }
   
   public void show() {
@@ -95,6 +80,9 @@ public class Cell {
   }
   public boolean getIsDoor() {
     return isDoor; 
+  }
+  public void setIsDoor(boolean d) {
+    isDoor = d; 
   }
   
   
