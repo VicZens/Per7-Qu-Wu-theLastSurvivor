@@ -17,7 +17,7 @@ public class Door extends Cell {
     super(x,y,h,w);
     newPlace = false;
     isStair = true;
-    if (random(2)<1) {
+    if (random(10000)<1) {
       img = loadImage("stairsLeft.jpg");
     } else {
       img = loadImage("stairsLeft.jpg");
