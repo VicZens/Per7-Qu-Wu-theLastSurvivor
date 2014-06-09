@@ -1,5 +1,7 @@
 public class Hero extends Character {
   PVector mouse;
+  PImage _attack;
+
   
   public Hero(int x, int y) {
    currPlace = new PVector(x,y);
@@ -8,6 +10,13 @@ public class Hero extends Character {
    dir.normalize();
    dir.mult(speed);
    setNextPlace();
+   
+   _up = loadImage("h_up.jpg");
+   _left = loadImage("h_left.jpg");
+   _right = loadImage("h_right.jpg");
+   _down = loadImage("h_down.jpg");
+   _attack = loadImage("h_attack.jpg");
+   currShape = _down;
 
    prevCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
    currCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
@@ -30,12 +39,9 @@ public class Hero extends Character {
   
   public void show() {
     pushMatrix();
-    noStroke();
-    fill(255);
+    image(currShape,currPlace.x,currPlace.y);
     translate(currPlace.x,currPlace.y);
     rotate(atan(dir.y/dir.x));
-    rectMode(CENTER);
-    rect(0,0, 30,20);
     popMatrix();
   }
   

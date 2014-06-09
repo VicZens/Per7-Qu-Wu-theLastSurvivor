@@ -1,13 +1,21 @@
 public class Enemy extends Character {
   int currSteps, steps;
   float detRange;
-  color c;
+  PImage _die;
   int chance;
+
 
   public Enemy(int x, int y) {
     currPlace = new PVector(x,y);
     dir = new PVector((int)random(2),(int)random(2));
     setNextPlace();
+    
+    _up = loadImage("e_up.jpg");
+    _left = loadImage("e_left.jpg");
+    _right = loadImage("e_right.jpg");
+    _down = loadImage("e_down.jpg");
+    _die = loadImage("e_die.jpg");
+    currShape = _down;
     
     prevCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
     currCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
@@ -21,8 +29,7 @@ public class Enemy extends Character {
     steps = 100;
     detRange = 5;
     chance = 10;
-    
-    c = color(0,0,255);
+  
   }
   
   public void update(Background bg, Hero h) {
@@ -73,11 +80,8 @@ public class Enemy extends Character {
   }
   
   public void show() {
-    if (health > 0) {
-      ellipseMode(CORNER);
-      fill(c);
-      ellipse(currPlace.x, currPlace.y, 20,20);
-    }
+    if (health > 0) 
+      image(currShape,currPlace.x,currPlace.y);   
   }
   
   //Background Update
@@ -113,19 +117,19 @@ public class Enemy extends Character {
   
   private void setNextPlace() {
     nextPlace = PVector.add(currPlace, dir);
-    nextPlace.add(dir.x * 35, dir.y * 35, 0);
+    nextPlace.add(dir.x * 35, dir.y * 35, 0);    
   }
   
   public void addHealth(int h) {
-    this.health = this.health + h; 
+    this.health = this.health + h;
   }
   
   public void setColor(color c) {
-    this.c = c; 
+    this.c = c;
   }
   
   public int getHealth() {
-    return health; 
-  }
+    return health;
+  } 
   //End
 }

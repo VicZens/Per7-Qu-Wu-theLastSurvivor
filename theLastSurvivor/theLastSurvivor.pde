@@ -82,7 +82,7 @@ void renewLevel() {
     e[e.length-1] = extraEnemies.peek(); 
     e[e.length-1].setColor(0);
   }
-  
+
 }
 
 void keyPressed() {
@@ -106,12 +106,12 @@ void mousePressed() {
 }
 
 void addDifficulty() {
-  if (random(1000)<10) {
-    for(Enemy enemies : e) {
-      extraEnemies.add(enemies); 
-    }
-  }
-  extraEnemies.get((int)random(4)).addHealth((int)random(5)+2);
+   if (random(1000)<10) {
+     for(Enemy enemies : e) {
+       extraEnemies.add(enemies); 
+     }
+   }
+   extraEnemies.get((int)random(4)).addHealth((int)random(5)+2);
 }
 
 void check() {
