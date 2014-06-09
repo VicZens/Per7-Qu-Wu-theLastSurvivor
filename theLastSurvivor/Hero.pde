@@ -1,6 +1,7 @@
 public class Hero extends Character {
   PVector mouse;
   PImage _attack;
+  int xp;
 
   
   public Hero(int x, int y) {
@@ -26,7 +27,7 @@ public class Hero extends Character {
 
    speed = 4;
    health = 25;
-   strength = 1;
+   strength = 10;
   }
   
   public void update(Background bg) {
@@ -121,6 +122,15 @@ public class Hero extends Character {
     dir.x = x;
     dir.y = y;
   }
-
+  public void setHealth(int health) {
+    this.health = health; 
+  }
+  
+  public void giveXP(int xp) {
+    this.xp = this.xp + xp; 
+  }
+  public int getXP() {
+    return xp; 
+  }
   //End
 }

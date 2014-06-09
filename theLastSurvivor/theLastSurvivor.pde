@@ -30,8 +30,14 @@ void draw() {
     updateTheClasses();
     showEverything();
   } else {
-    v.endScreen();
-  }//Better do something after this cuz it just crashes
+    h.setHealth(25);
+    if ((int)(amtXP+100)/100) {
+      h.giveXP(-100);
+    }
+    level = 1;
+    renewLevel();
+    delay(1000);
+  }
 }
 
 void updateTheClasses() {

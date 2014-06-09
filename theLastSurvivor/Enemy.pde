@@ -4,7 +4,8 @@ public class Enemy extends Character {
   color c;
   PImage _die;
   int chance;
-
+  boolean onlyOnce;
+  int xpGive;
 
   public Enemy(int x, int y) {
     currPlace = new PVector(x,y);
@@ -24,13 +25,14 @@ public class Enemy extends Character {
     nextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     
-    health = 5;
-    
+    health = 2;
+    onlyOnce = true;
     speed = 5;
     steps = 100;
     detRange = 5;
     chance = 10;
-  
+    
+    xpGive = 10;
   }
   
   public void update(Background bg, Hero h) {
@@ -52,6 +54,10 @@ public class Enemy extends Character {
      checkEnemy(bg);
      attack();
     } else {
+      if(onlyOnce) {
+        h.giveXP(xpGive);
+        onlyOnce = false;
+      }
       currCell.setEnemyOn(false);
     }
   }

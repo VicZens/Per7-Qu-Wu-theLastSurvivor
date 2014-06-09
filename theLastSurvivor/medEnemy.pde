@@ -9,5 +9,6 @@ public class medEnemy extends Enemy {
     health = 3;
     strength = 2;
     chance = 20;
+    xpGive = 15;
   }
 }

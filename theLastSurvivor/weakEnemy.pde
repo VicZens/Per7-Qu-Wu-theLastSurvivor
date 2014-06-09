@@ -9,5 +9,6 @@ public class weakEnemy extends Enemy {
     health = 2;
     strength = 1;
     chance = 10;
+    xpGive = 10;
   }
 }
