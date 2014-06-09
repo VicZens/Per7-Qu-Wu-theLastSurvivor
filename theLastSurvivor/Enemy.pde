@@ -16,7 +16,7 @@ public class Enemy extends Character {
     _right = loadImage("e_right.jpg");
     _down = loadImage("e_down.jpg");
     _die = loadImage("e_die.jpg");
-    currShape = fixed(_down,50,50);
+    currShape = fixed(_down);
     
     prevCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
     currCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
@@ -81,10 +81,23 @@ public class Enemy extends Character {
   }
   
   public void show() {
-    if (health > 0) 
+    if (health > 0) {
+      if (mouseX > currPlace.x) {
+        if (mouseY > currPlace.y)
+          currShape = fixed(_right);
+        else
+          currShape = fixed(_up); 
+      }
+      else if (mouseX < currPlace.x) {
+        if (mouseY < currPlace.y)
+          currShape = fixed(_left);
+        else
+          currShape = fixed(_down);
+      }
       image(currShape,currPlace.x,currPlace.y);
+    }
     else
-      image(fixed(_die,50,50),currPlace.x,currPlace.y);   
+      image(fixed(_die),currPlace.x,currPlace.y);   
   }
   
   //Background Update

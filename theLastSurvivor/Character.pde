@@ -11,15 +11,14 @@ public class Character {
     health = health - healthLost;
   } 
   
-  public PImage fixed(PImage og, int x, int y) {
-    int len = x*y;
+  public PImage fixed(PImage og) {
     og.loadPixels();
     back.loadPixels();
-    for (int r = 0; r < x; r++) {
+    for (int r = 0; r < 50; r++) {
       boolean edgeReached = false;
-      for (int c = 0; c < y; c++) { 
-        if (og.pixels[x*r+c] > -66000)
-          og.pixels[x*r+c] = back.pixels[0];
+      for (int c = 0; c < 50; c++) { 
+        if (og.pixels[50*r+c] > -66000)
+          og.pixels[50*r+c] = back.pixels[0];
         else
           edgeReached = true;
       }    

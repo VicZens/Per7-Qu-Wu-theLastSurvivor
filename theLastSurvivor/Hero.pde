@@ -16,7 +16,7 @@ public class Hero extends Character {
    _right = loadImage("h_right.jpg");
    _down = loadImage("h_down.jpg");
    _attack = loadImage("h_attack.jpg");
-   currShape = fixed(_down,50,50);
+   currShape = fixed(_down);
 
    prevCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
    currCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
@@ -39,6 +39,18 @@ public class Hero extends Character {
   
   public void show() {
     pushMatrix();
+    if (mouseX > currPlace.x) {
+      if (mouseY > currPlace.y)
+        currShape = fixed(_right);
+      else
+        currShape = fixed(_up); 
+    }
+    else if (mouseX < currPlace.x) {
+      if (mouseY < currPlace.y)
+        currShape = fixed(_left);
+      else
+        currShape = fixed(_down);
+    }
     image(currShape,currPlace.x,currPlace.y);
     translate(currPlace.x,currPlace.y);
     rotate(atan(dir.y/dir.x));
