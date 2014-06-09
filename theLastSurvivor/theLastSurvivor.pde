@@ -37,7 +37,6 @@ void updateTheClasses() {
     e[i].update(bg, h);
   }
   v.update(bg, h, e);
-  println(h.getHealth());
 }
 
 void showEverything() {
