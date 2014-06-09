@@ -2,6 +2,7 @@ public class Hero extends Character {
   PVector mouse;
   PImage _attack;
   int xp;
+  int level;
 
   
   public Hero(int x, int y) {
@@ -27,15 +28,19 @@ public class Hero extends Character {
 
    speed = 4;
    health = 25;
-   strength = 10;
+   strength = 1;
   }
   
   public void update(Background bg) {
-      mouse = new PVector(mouseX,mouseY);
-      dir = PVector.sub(mouse,currPlace);
-      dir.normalize();
-      checkHero(bg);
-      dir.mult(speed);
+    mouse = new PVector(mouseX,mouseY);
+    dir = PVector.sub(mouse,currPlace);
+    dir.normalize();
+    checkHero(bg);
+    dir.mult(speed);
+    if ((int)(xp+100)/100>level) {
+      level++;
+      strength++; 
+    }
   }
   
   public void show() {

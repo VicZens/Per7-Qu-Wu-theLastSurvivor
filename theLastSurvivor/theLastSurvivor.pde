@@ -31,7 +31,7 @@ void draw() {
     showEverything();
   } else {
     h.setHealth(25);
-    if ((int)(amtXP+100)/100) {
+    if ((int)(h.getXP()+100)/100>1) {
       h.giveXP(-100);
     }
     level = 1;
