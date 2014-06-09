@@ -16,7 +16,7 @@ public class Hero extends Character {
    _right = loadImage("h_right.jpg");
    _down = loadImage("h_down.jpg");
    _attack = loadImage("h_attack.jpg");
-   currShape = _down;
+   currShape = fixed(_down,50,50);
 
    prevCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
    currCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);

@@ -1,4 +1,4 @@
-umbimport java.util.*;
+import java.util.*;
 
 Background bg;
 Hero h;
@@ -110,8 +110,8 @@ void addDifficulty() {
      for(Enemy enemies : e) {
        extraEnemies.add(enemies); 
      }
-   }
-   extraEnemies.get((int)random(4)).addHealth((int)random(5)+2);
+  }
+  extraEnemies.get((int)random(4)).addHealth((int)random(5)+2);
 }
 
 void check() {

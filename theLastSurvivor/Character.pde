@@ -13,10 +13,16 @@ public class Character {
   
   public PImage fixed(PImage og, int x, int y) {
     int len = x*y;
-    loadPixels();
-    for (int i = 0; i < len; i++) {
-      if (pixels[i] == 255)
-        pixels[i] = back[0];    
+    og.loadPixels();
+    back.loadPixels();
+    for (int r = 0; r < x; r++) {
+      boolean edgeReached = false;
+      for (int c = 0; c < y; c++) { 
+        if (og.pixels[x*r+c] > -66000)
+          og.pixels[x*r+c] = back.pixels[0];
+        else
+          edgeReached = true;
+      }    
     }
     updatePixels();
     return og;    

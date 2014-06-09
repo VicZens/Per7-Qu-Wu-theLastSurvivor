@@ -1,6 +1,7 @@
 public class Enemy extends Character {
   int currSteps, steps;
   float detRange;
+  color c;
   PImage _die;
   int chance;
 
@@ -15,7 +16,7 @@ public class Enemy extends Character {
     _right = loadImage("e_right.jpg");
     _down = loadImage("e_down.jpg");
     _die = loadImage("e_die.jpg");
-    currShape = _down;
+    currShape = fixed(_down,50,50);
     
     prevCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
     currCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
@@ -81,7 +82,9 @@ public class Enemy extends Character {
   
   public void show() {
     if (health > 0) 
-      image(currShape,currPlace.x,currPlace.y);   
+      image(currShape,currPlace.x,currPlace.y);
+    else
+      image(fixed(_die,50,50),currPlace.x,currPlace.y);   
   }
   
   //Background Update
