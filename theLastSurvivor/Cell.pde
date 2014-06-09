@@ -21,9 +21,26 @@ public class Cell {
 
    if ( (x/20) == 0 || (x/20) == 28 || (y/20) == 0 || (y/20) == 28) {
      background = loadImage("wall.jpg");
-     noZone = true;
+     if (!isDoor) {
+       noZone = true;
+     }
    }
+  }
+  
+  public Cell(int x, int y, float h, float w) {
+   this.x = x;
+   this.y = y;
+   this.h = h;
+   this.w = w;
+   
+   background = loadImage("grass.jpg");
 
+   if ( (x/20) == 0 || (x/20) == 28 || (y/20) == 0 || (y/20) == 28) {
+     background = loadImage("wall.jpg");
+     if (!isDoor) {
+       noZone = true;
+     }
+   }
   }
   
   public void show() {

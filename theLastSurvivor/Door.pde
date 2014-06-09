@@ -1,6 +1,7 @@
 public class Door extends Cell {
   boolean newPlace;
   PImage img;
+  boolean isStair;
   
   public Door(int x, int y, float h, float w, boolean door, boolean left) {
     super(x,y,h,w, door);
@@ -13,9 +14,25 @@ public class Door extends Cell {
     } 
   }
   
+  public Door(int x, int y, float h, float w) {
+    super(x,y,h,w);
+    newPlace = false;
+    isStair = true;
+    if (random(2)<1) {
+      img = loadImage("stairsLeft.jpg");
+    } else {
+      img = loadImage("stairsLeft.jpg");
+    }
+  }
+  
   public void show() {
     pushMatrix();
-    image(img, x, y, 30, 30);
+    if (isStair) {
+      image(img, x, y, 30, 30);
+    } else {
+      stroke(0);
+      image(img, x, y, 30, 30);
+    }
     popMatrix();
   }
   
