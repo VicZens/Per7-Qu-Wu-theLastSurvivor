@@ -2,6 +2,7 @@ public class Enemy extends Character {
   int currSteps, steps;
   float detRange;
   color c;
+  int chance;
 
   public Enemy(int x, int y) {
     currPlace = new PVector(x,y);
@@ -19,6 +20,7 @@ public class Enemy extends Character {
     speed = 5;
     steps = 100;
     detRange = 5;
+    chance = 10;
     
     c = color(0,0,255);
   }
@@ -47,7 +49,7 @@ public class Enemy extends Character {
   }
   
   public void attack() {
-    if (nextCell.getHeroOn() & ((int)random(100)<10)) {
+    if (nextCell.getHeroOn() & ((int)random(1000)<chance)) {
        nextCell.getHero().getHurt(strength);
     }
   }
@@ -112,7 +114,18 @@ public class Enemy extends Character {
   private void setNextPlace() {
     nextPlace = PVector.add(currPlace, dir);
     nextPlace.add(dir.x * 35, dir.y * 35, 0);
-    
+  }
+  
+  public void addHealth(int h) {
+    this.health = this.health + h; 
+  }
+  
+  public void setColor(color c) {
+    this.c = c; 
+  }
+  
+  public int getHealth() {
+    return health; 
   }
   //End
 }

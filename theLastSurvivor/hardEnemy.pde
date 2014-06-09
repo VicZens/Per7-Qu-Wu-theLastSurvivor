@@ -8,5 +8,6 @@ public class hardEnemy extends Enemy {
     detRange = 5;
     health = 5;
     strength = 3;
+    chance = 30;
   }
 }
