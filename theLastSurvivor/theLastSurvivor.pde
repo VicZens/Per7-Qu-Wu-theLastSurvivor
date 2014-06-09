@@ -77,7 +77,9 @@ void mousePressed() {
     if (h.getNextCell().getIsDoor()) {
       renewLevel();
     }
-    check(); 
+    if (h.getCurrCell().getIsStairs()) {
+       check(); 
+    }
   }
 }
 

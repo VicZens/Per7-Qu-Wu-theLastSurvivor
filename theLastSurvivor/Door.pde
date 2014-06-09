@@ -1,7 +1,6 @@
 public class Door extends Cell {
   boolean newPlace;
   PImage img;
-  boolean isStair;
   
   public Door(int x, int y, float h, float w, boolean door, boolean left) {
     super(x,y,h,w, door);

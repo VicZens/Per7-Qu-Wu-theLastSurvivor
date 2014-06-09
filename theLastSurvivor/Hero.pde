@@ -102,6 +102,9 @@ public class Hero extends Character {
   public Cell getNextCell() {
     return nextCell; 
   }
+  public Cell getCurrCell() {
+    return currCell; 
+  }
   public PVector getDir() {
     return dir; 
   }

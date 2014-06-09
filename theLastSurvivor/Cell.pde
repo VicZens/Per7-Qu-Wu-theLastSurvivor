@@ -10,6 +10,7 @@ public class Cell {
   boolean enemyOn, enemyNext;
   boolean noZone;
   boolean isDoor;
+  boolean isStair;
   
   public Cell(int x, int y, float h, float w, boolean door) {
    this.x = x;
@@ -97,6 +98,9 @@ public class Cell {
   }
   public boolean getIsDoor() {
     return isDoor; 
+  }
+  public boolean getIsStairs() {
+    return isStair; 
   }
   public void setIsDoor(boolean d) {
     isDoor = d; 
