@@ -3,7 +3,7 @@ public class Character {
   Cell currNextCell, nextCell, currCell, prevCell;
   int health, strength; 
   float speed;
-  PImage currShape, _up, _down, _left, _right;'
+  PImage currShape, _up, _down, _left, _right;
   PImage back = loadImage("grass.jpg");
 
   
