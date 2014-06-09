@@ -16,7 +16,7 @@ public class Hero extends Character {
    currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
 
    speed = 4;
-   health = 1;
+   health = 25;
    strength = 1;
   }
   
@@ -58,6 +58,9 @@ public class Hero extends Character {
     currCell = bg.getCell((int)currPlace.x/30, (int)currPlace.y/30);
     currNextCell = bg.getCell((int)nextPlace.x/30, (int)nextPlace.y/30);
     setNextPlace();
+    
+    prevCell.setHeroOn(false);
+    currCell.setHero(this);
     
     checkHeroOn(bg);
     checkHeroNext(bg);

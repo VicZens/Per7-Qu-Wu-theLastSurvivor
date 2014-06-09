@@ -1,6 +1,7 @@
 public class Enemy extends Character {
   int currSteps, steps;
   float detRange;
+  color c;
 
   public Enemy(int x, int y) {
     currPlace = new PVector(x,y);
@@ -18,6 +19,8 @@ public class Enemy extends Character {
     speed = 5;
     steps = 100;
     detRange = 5;
+    
+    c = color(0,0,255);
   }
   
   public void update(Background bg, Hero h) {
@@ -37,14 +40,14 @@ public class Enemy extends Character {
      }
      checkForHero(h);
      checkEnemy(bg);
-     //attack();
+     attack();
     } else {
       currCell.setEnemyOn(false);
     }
   }
   
   public void attack() {
-    if (nextCell.getHeroOn() & ((int)random(1000)==0)) {
+    if (nextCell.getHeroOn() & ((int)random(100)<10)) {
        nextCell.getHero().getHurt(strength);
     }
   }
@@ -70,7 +73,7 @@ public class Enemy extends Character {
   public void show() {
     if (health > 0) {
       ellipseMode(CORNER);
-      fill(100,50,150);
+      fill(c);
       ellipse(currPlace.x, currPlace.y, 20,20);
     }
   }

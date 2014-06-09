@@ -2,7 +2,6 @@ public class Background {
  Cell[][] c;
  float sizeX, sizeY;
  boolean top, bot, left, right;
- int level;
  boolean noStairs;
  Door d;
  
@@ -14,7 +13,6 @@ public class Background {
    left = true;
    right = true;
    c = new Cell[sizeX][sizeY];
-   level = 1;
    noStairs = true;
    
    for(int x = 0; x < sizeX; x++) {
@@ -33,7 +31,7 @@ public class Background {
    
    for(int x = 1; x < sizeX-1; x++) {
     for(int y = 1; y < sizeY-1; y++) {
-      if (random(10000)<5 & noStairs) {
+      if (random(1)<5 & noStairs) {
         d = new Door(x*(600/sizeX), y*(600/sizeY), 600/sizeX, 600/sizeY);
         c[x][y] = d;
         noStairs = false;
@@ -56,13 +54,6 @@ public class Background {
    } else {
      return new Cell(1,1,1,1, false); 
    }
- }
- 
- public int getLevel() {
-   return level; 
- }
- public void incLevel() {
-   level++; 
  }
  
  public Door getStairs() {
