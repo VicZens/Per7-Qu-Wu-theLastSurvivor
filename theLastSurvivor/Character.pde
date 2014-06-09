@@ -26,10 +26,6 @@ public class Character {
     updatePixels();
     return og;    
   }
-
-  public void shapeShift(){
-  
-  }
   
  //End
 }

@@ -1,7 +1,6 @@
 public class Enemy extends Character {
   int currSteps, steps;
   float detRange;
-  color c;
   PImage _die;
   int chance;
   boolean onlyOnce;
@@ -145,11 +144,7 @@ public class Enemy extends Character {
   public void addHealth(int h) {
     this.health = this.health + h;
   }
-  
-  public void setColor(color c) {
-    this.c = c;
-  }
-  
+    
   public int getHealth() {
     return health;
   } 

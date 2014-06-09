@@ -86,7 +86,6 @@ void renewLevel() {
   }
   if(random(100)<1) {
     e[e.length-1] = extraEnemies.peek(); 
-    e[e.length-1].setColor(0);
   }
 
 }

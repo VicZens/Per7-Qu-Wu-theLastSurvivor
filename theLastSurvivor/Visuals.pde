@@ -41,13 +41,12 @@ public class Visuals {
      
   }
   
-  /*
   public void endScreen() {
     background(0);
-    fill(255);
     textAlign(CENTER,CENTER);
     textSize(50);
     text("YOU HAVE DIED...LOSER.", 300,300);
+    textSize(12);
+    text("You were not the last survivor...",300,500);
   }
-  */
 }
